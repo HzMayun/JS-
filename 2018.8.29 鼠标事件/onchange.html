@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		//页面加载
+		window.onload=function(){
+			//获取下拉菜单
+			var menu=document.getElementById('menu');
+			//给菜单绑定change事件，一班、般作用于select 或checkbox（复选）或radio(单选)
+			menu.onchange=function(){
+				//获取当前选中的值
+				//var bgcolor=this.value
+				var bgcolor=menu.options[menu.selectedIndex].value; 
+				if (bgcolor==""){//如果为空（请选择）
+					document.body.style.background="#fff";  //白色
+				}else {document.body.style.background=bgcolor;}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		请选择您喜欢的背景色: 
+		<select name="" id="menu">
+			<option value="">请选择</option>
+			<option value="#f00">红色</option>
+			<option value="#0f0">绿色</option>
+			<option value="#00f">蓝色</option>
+			<option value="#ff0">黄色</option>
+			<option value="#ccc">灰色</option>
+		</select>
+	</div>
+
+</body>
+</html>

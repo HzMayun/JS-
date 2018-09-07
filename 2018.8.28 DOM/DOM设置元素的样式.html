@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>设置元素的样式</title>
+	<style type="text/css">
+		.on{border-bottom:1px solid #0f0;}
+		.current{background: red ;color: #0ff;}
+	</style>
+</head>
+<body>
+
+	<div class="box" id="box">
+		元素1
+	</div>
+
+	<ul id="list">
+		<li>前端开发</li>
+		<li>服务器开发</li>
+		<li>UI设计</li>
+	</ul>
+<p id="text" align="center" data-type="title" class="text">文本</p>
+	<script type="text/javascript">
+		/*
+		
+						1、设置元素样式		语法：ele.style.styleName=styleValue
+											功能：设置ele元素的CSS样式
+											说明： ele为要设置样式的DOM对象
+								   					styleName为要设置的样式名称  名称要用用驼峰模式
+								  					 styleValue为设置的样式值
+		
+						2、获取属性getAttribute（）          语法：ele.getAttribute("attribute")
+															功能：获取ele元素的attribute属性
+															说明： ele是要操作的DOM对象
+								 							attribute是要获取的html属性（如：id 、 type）
+
+						3、设置属性setAttribute()			语法：ele.setAttribute("attribute",value)
+								 							功能：在ele元素上设置属性
+								 							说明：  ele是要操作的DOM对象
+																	attribute为要设置的属性名称
+																	value为设置的attribute属性的值(如果为字符串时 需要加引号)
+
+						4、删除属性removeAttribute() 		语法： ele.removeAttribute("attribute")
+
+
+						3、 innerHTML       语法：ele.innerHTML
+											功能：返回ele元素开始和结束标签之间的HTML
+
+											语法：ele。innerHTML="html"
+											功能：设置ele元素开始和结束之间的HTML内容为html
+						
+
+						4、className        语法：ele.className
+											功能：返回ele元素的class属性
+
+											语法：ele.className="cls"
+											功能：设置ele元素的class属性为cls
+
+		 */
+		
+		var lis=document.getElementById('list').getElementsByTagName('li');
+		console.log(lis);//   [li, li, li]  
+		//lis.style.color="#00f";// Cannot set property 'color' of undefined  报错   因为getElementsByTagName('li');返回的是一个数组，数组是没有style属性的，、dom元素才有
+		
+	//遍历每一个li
+		for (var i = 0; i < lis.length; i++) {
+			lis[i].style.color="#0ff";
+
+			if (i==0) {lis[i].style.backgroundColor="#ccc"}
+				else if (i==1) {lis[i].style.backgroundColor="#666"}
+					else if (i==2) {lis[i].style.backgroundColor="#999"}
+						else{lis[i].style.backgroundColor="#333"};
+		}
+
+	//innerHTML 
+		var lis=document.getElementById("list").getElementsByTagName("li");
+		for (var i = 0; i < lis.length; i++) {
+			console.log(lis[i].innerHTML); // 前端开发 服务器开发 UI设计   返回li之间的文本和html
+			lis[i].innerHTML+="程序";//界面上 变为   前端开发程序  服务器开发程序  UI设计程序
+			lis[i].className="current";
+		}
+	//getAttribute("") 方法 取自定义的用该方法，自带标签可以直接通过  .属性名称 直接访问（class除外）
+		var p =document.getElementById("text");
+		console.log(p.align);//center  所有的自带标签属性都可以通过p.标签名   来访问 （class除外）
+		console.log(p.getAttribute("data-type")); //title
+		console.log(p.getAttribute("class")); //等价于  p.className
+	//设置属性setAttribute()  给p设置一个data-color属性
+		p.setAttribute("data-color","red"); //在p标签的审查元素中可以看见 多了一个data-color属性
+	//删除属性removeAttribute()
+		p.removeAttribute("align")//将p中的align属性删除 ，默认是居左的
+
+	</script>
+
+</body>
+</html>

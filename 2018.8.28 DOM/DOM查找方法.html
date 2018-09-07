@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM</title>
+</head>
+<body>
+
+	<div class="box" id="box">
+		元素1
+	</div>
+
+	<ul id="list1">
+		<li>前端开发</li>
+		<li>服务器开发</li>
+		<li>UI设计</li>
+	</ul>
+	<ol>
+		<li>javaScript原生</li>
+		<li>javaScript框架</li><!-- -->
+	</ol>
+
+	<p id="text" align="center" data-type="title">
+		文本
+	</p>
+
+	<script type="text/javascript">
+	 		/*
+		1、DOM查找元素的方法：
+				1、 语法：document.getElementById("id")	
+			  		功能	：返回对拥有指定ID的第一个对象的引用(如果出现了两个id是重复的DOM元素，返回的是第一个)
+			  		返回值：DOM对象
+			  		说明：id为DOM元素上id属性的值
+
+			  	2、 语法：document.getElementsByTagName("tag")
+			  		功能：返回一个对所有tag标签引用的集合
+			  		返回值：数组
+			  		说明：tag为要获取的标签名称	
+ 
+		2、设置元素样式		语法：ele.style.styleName=styleValue
+							功能：设置ele元素的CSS样式
+							说明： ele为要设置样式的DOM对象
+								   styleName为要设置的样式名称  名称要用用驼峰模式
+								   styleValue为设置的样式值
+		
+		3、获取属性          语法：ele.getAtrribute("attribute")
+							功能：获取ele元素的attribute属性
+							说明： ele是要操作的DOM对象
+								  attribute是要获取的html属性（如：id 、 type、
+								  ）
+
+			 */
+	
+	//获取id为box的这个元素
+	var box = document.getElementById("box");
+	console.log(box);
+	//设置id为box这个元素的文字颜色
+	box.style.color="#f00";//红色
+	box.style.fontWeight="bold";//粗体
+	//获取页面中所有的li
+	var lis=document.getElementsByTagName("li");
+	console.log(lis.length);// 返回值是数组形式，界面中li界面有5个  
+	//获取id是list1下的li
+	var lis2=document.getElementById("list1").getElementsByTagName("li");
+	console.log(lis2.length);//3
+
+	var p=document.getElementById("text");
+	console.log(p.getAttribute("align"));
+	console.log(p.align);//center
+	//console.log(p.class);//undefined   class是特殊的
+
+	</script>
+
+</body>
+</html>

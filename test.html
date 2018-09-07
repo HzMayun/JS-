@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.main{
+			width: 1200px;
+			height: 460px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="main" id="main">
+		
+	</div>
+
+	<script type="text/javascript">
+		function byId(id) {
+	return typeof(id)==="string"?document.getElementById(id):id;
+}
+console.log(byId('main'));
+
+//全局变量
+var index=0,
+	timer=null;
+
+function slideImg(){
+	var main = byId(main);
+	//滑过清楚定时器，离开继续
+	console.log(main);
+	
+	main.onmouseout = function(){
+		//鼠标离开时继续
+		timer = setInterval(function(){
+			index++;
+			console.log(index);
+		},1000);
+	}
+}
+slideImg();
+	</script>
+
+</body>
+</html>

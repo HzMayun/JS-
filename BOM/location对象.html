@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.box1{
+			height: 400px;
+			background: #ccc;
+		}
+		.box2{
+			height: 400px;
+			background: #666;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1" id="top"></div>
+	<div class="box2"></div>
+	<input type="button" id="btn" value="返回顶部">
+
+	<a href="#" id="go">跳转</a>
+	<a href="history对象.html">history对象.html</a>
+	<script type="text/javascript">
+//href 返回URL
+	/*	console.log(location.href);
+		setTimeout(function(){
+			location.href='index6.html';//跳转到index6.html这个页面，并且会生成一跳历史记录，点击浏览器后退会回到上个界面
+			//location.replace='index6.html'//这个函数不会生成历史记录
+		},1000) 
+		console.log(location.hash);
+	*/
+//hash 获取猫点 用来跳转
+		var btn=document.getElementById('btn');
+		btn.onclick=function(){
+			location.hash="#top";
+		}
+	</script>
+</body>
+</html>

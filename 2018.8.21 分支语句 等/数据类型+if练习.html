@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>数据类型+IF练习</title>
+</head>
+<body>
+	<script>
+
+		var str = "abc123";
+		var num = parseInt(str);//取整数，必须是数字开头的，否则返回是NaN ,所以这里返回的num是NaN
+
+		if(num==NaN) {     //NaN和任何数都不相等，包括本身，所以这里的提条件不成立
+			alert(NaN);
+		}else if(num ==123) {
+			alert(123);
+		}else if(typeof num=="number" ) {   //NaN 的类型还是属于number的，所以条件成立 ，
+			alert(num);                    // 弹出num，结果为 NaN
+		}else{
+			alert("str");
+		}
+
+	</script>
+</body>
+</html>

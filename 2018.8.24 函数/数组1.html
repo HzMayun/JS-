@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>数组学习1</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+			/*
+					1、数组的创建： 两种方法： （1）使用Array构造函数  new Array()	（）中可以保存数组的具体项目
+																			也可以直接保存数组中要保存的项
+								            （2）使用数组字面量的表示方法 由一对包含数组项的【】表示，多个数组项之间以逗号隔开
+									数组中的元素吧、每个对象的类型都可以不一致，对数组元素类型没有限制
+
+					2、数组元素的读写 ： 读取和设置值时，运用【】中的索引 ，从0开始。。。当索引超过数组长度时，返回undefined
+
+					3、数组的栈方法 ： （1）、push()      语法：arrayObiect.push(newele1,newewle2.....)
+													    功能： 把他的参数顺序添加到arrayObject的尾部
+													    返回值：把指定的值添加到数组后的 新长度
+
+									  （2）、unshift()  语法： arrayObiect.unshift(newele1,newewle2.....)
+									  					功能：添加在前面
+
+									  （3）、shift() 	 语法：arrayObiect.shift()
+									  					 功能： 删除元素的第一个元素
+									  					 返回值：被删除的那个元素
+
+									  （4）、pop()       语法：arrayObiect.pop()
+									  					 功能： 删除元素的最后一个元素
+									  					 返回值：被删除的那个元素
+
+					4.数组的join方法    功能：用于把所有的元素放入一个字符串  （字符串转换）
+								       返回值：字符串
+								       语法：arrayObiect.join(separator)       separator:分隔符
+
+					5 reverse()方法     功能： 颠倒数组中的元素顺序	 
+									   语法： arrayObiect.reverse	
+
+					6、sort()方法    	功能：排序
+									    返回值： 数组
+									     说明： （1）即使数组中每一项都是数值，sort()方法比较的也是字符串（把每一个数组项转换成字符串后再进行排列的）
+									     	    （2）sort()方法可以接收一个比较函数作为参数       
+			 */
+
+//创建数组		
+		var colors = new Array(3);  //创建一个保存颜色的数组  // 表示数组保存3个值
+		var nums = new Array(1,3,6,9); //创建一个保存数字的数组 括号里表示存入了1369是个数值
+		console.log(nums);  // [1,3,6,9]
+
+		var infors = [6,"marry",true];   //用【】直接创建和设置数值  。。。数组中的元素的类型可以使任意类型
+		console.log (infors);
+//用【】给colors数组赋值
+		colors[0]="red";            
+		colors[1]="blue";
+		colors[2]="green";
+		console.log(colors);
+//length属性改变数组长度
+		console.log(colors.length); // colors数组长度是 3 
+		colors.length=6;
+		console.log(colors.length);// colors数组长度是 6  强制改变
+//索引相关 数组长度
+		colors[99]="z";
+		console.log(colors);  //colors数组长度变为了100 数组长度总是 最后一个 索引  +1
+//数组的遍历
+		for (var i = 0; i < colors.length; i++) {
+			 console.log(colors[i]);
+		}
+//push 方法
+		colors.push("blank");   //blank被添加到 元素 “z” 的 后 面  ， 返回添加后的数组
+		console.log(colors);    
+//unshift
+		colors.unshift("a");    // 加在数组的第一个 ，返回添加后的数组
+		console.log(colors);
+//pop
+		colors.pop();			//删除最后一个，，返回被删除的那个元素
+		console.log(colors);
+//shift
+	 	colors.shift();			//删除第一个，，返回被删除的那个元素
+	 	console.log(colors);
+
+
+//join 方法 将数组转换成字符串 字符串拼接
+		console.log(nums);   //[1,3,6,9]   这是数组
+		//转换成字符串    分隔符是-   默认逗号 ，如果不隔开，则用一个空格
+		console.log(nums.join()); //返回值： 1,3,6,9
+		console.log(nums.join(" "));//返回值1369
+		console.log(nums.join("-"));//返回值1-3-6-9
+//reverse() 颠倒数组中的元素顺序
+		console.log(nums);   //[1,3,6,9]  
+		console.log(nums.reverse());//[9,6,3,1]
+//sort() 数组排序方法
+		var numbers=[4,87,6,9,45,65,78];
+		console.log(numbers.sort());//对数组排序，每个数组项的第一个字符的值大小 [4, 45, 6, 65, 78, 87, 9]
+		//给一个函数作为它的参数
+		numbers.sort(function(x,y){return y-x ;}); //对数组做一个降序排列    一个匿名函数作为他的参数
+		console.log(numbers);  //[87, 78, 65, 45, 9, 6, 4]
+		numbers.sort(function(x,y){return x-y;}); //对数组做一个升序排列
+		console.log(numbers);  //[4, 6, 9, 45, 65, 78, 87]
+
+			 
+	</script>
+</body>
+</html>

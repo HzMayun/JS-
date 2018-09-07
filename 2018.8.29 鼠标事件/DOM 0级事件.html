@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+		<meta charset="utf-8">
+	<title>HTML事件</title>
+	<style type="text/css">
+		.lock{
+			width: 140px;
+			height: 30px;
+			line-height: 30px;
+			background:#00f;
+			color:#ccc;
+			font-size: 14px;
+			text-align: center;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-top: 30px;
+		}
+		.unlock{
+			width: 140px;
+			height: 30px;
+			line-height: 30px;
+			background:#666;
+			color:#ccc;
+			font-size: 14px;
+			text-align: center;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-top: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="lock" id="btn">锁定</div>
+	<div class="lock" id="btn1">锁定</div>
+	<script type="text/javascript">
+//获取按钮
+	var btn=document.getElementById('btn');
+//给按钮绑定事件，this是对该DOM元素的一个引用
+	btn.onclick=function(){ //事件触发时调用一个匿名函数
+		//判断如果按钮是锁定，则显示为解锁，变为灰色，否则显示为锁定，变为蓝色
+		
+
+		//通过class判断
+/* 		if (this.className=="lock") {
+				this.className="unlock"; //按钮改改变成unlock
+				this.innerHTML="解锁";   //改变文本为解锁
+		}else{
+			this.className="lock"; //按钮改变成lock
+			this.innerHTML="锁定";//改变文本为锁定
+		} 
+*/
+
+		//通过文本来判断
+		if (this.innerHTML=="锁定") {
+			this.className="unlock";
+			this.innerHTML="解锁";
+		}else{
+			this.className="lock"; //按钮改变成lock
+			this.innerHTML="锁定";//改变文本为锁定			
+		}
+
+	function clickBtn(){    //自定义一个函数
+		alert("我是一个按钮")
+	}
+//点击按钮时调用这个函数
+	btn1.onclick=clickBtn;//调用这样一个函数时，函数后面不能加（） ，不然在页面刷新的时就会自动调用了
+	}
+
+	</script>
+
+</body>
+</html>

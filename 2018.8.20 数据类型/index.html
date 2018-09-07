@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script type="">
+		//声明保存用户的变量声明的同时赋值或者声明后再赋值，
+		//省略VAR直接声明的变量是全局变量
+		/*
+		*name_01 = "marry"；
+		 */
+		//一次声明多个变量： 变量之间用逗号隔开
+		//var name_01;
+		//变量的类型取决于变量的值
+		var name_01 = "marry",age = 18,email = "marry@xinlang.com,adrees,settings = null";
+		/*
+		
+		 
+		javaScript的数据类型：1 简单数据类型（5种）Undefined Null Boolean Number String(字符串类型加“····”) 
+
+							~ (1)、 undefined(没有定义的)：只有一个值，即特殊的undefined ；一般的，不用显示的告知; 如上面定义的address变量
+
+
+							~（2）、null : 空指针对象 ；准备在将来保存对象，初始化时将该变量设为null而不是其他值
+								 ~~~~~~~ undefined==null的返回结果是true；undefined的值派生于null
+
+
+							~（3）、number : 表示整数和浮点数 
+										NaN: 非数值，是一个特殊的数值，也是number类型的 比如： 
+														 console.log(age-abc) 会返回NaN
+														 console.log(typeof （age-abc）) 会返回number
+											说明：任何涉及NaN的操作都会返回NaN； NaN与任何值都不相等包括它本身
+												isNaN(n) 方法：检测n是否为“非数值”，返回是Boolean值
+
+											有三个函数方法可以把非数值转换成数值	
+
+												Number(): 可以用于任何数据类型 ，强制转换,尽量不使用
+
+												parseInt()： 会忽略字符串前面的空格，知道找到一第一个非空格字符；
+															 转换空字符串返回NaN；
+				这两个使用的话，必须是数字开头的
+												parseFloat()：从第一个字符开始解析每个字符，直到遇到一个无效的浮点数字符为止
+															说明：除了第一个小数点有效外，parseFloat()与parseInt（）的第二个区别在于它始终都会忽略前面的0
+
+
+							~（4）string   : 
+									toString() : 语法： str.toString
+												 功能 ：将str转换成字符串
+												 返回值： str的一个副本
+												 参数： str要转换的内容，可以是数值、布尔值、对象、和字符串。
+												 说明：在不知道要转换的值是不是null或undefined的情下，还可以使用String()函数，它能够将任何类型的值转换成字符串（强制转换）
+
+
+							~(5) boolean : 除0之外的所有数字，转换为布尔型都为true
+										   除“”之外的所有字符，转换成布尔型都为true(空格也是true)
+										   null 和 undefined 转换成布尔型为false
+ 
+
+							 2 ECMAScript 6 新增了symbol数据类型   Object 
+
+
+				typeof 方法 ： 功能：检测变量类型
+							   语法：typeof 变量 或者 typeof （变量）
+							   返回值：String类型 ，有可能是 string number boolean object undefine function 中的任何一种
+ 		 */
+ 		var id = "16"
+ 		var distance = 12.3434;
+ 		console.log(typeof age) //console函数： 在控制台中打印
+ 		console.log(isNaN(age)) // 判断age是不是NaN 类型 返回是false
+ 		console.log(isNaN(age-"abc")) //true
+
+ 		console.log(typeof id) // 返回 string 
+ 		id = Number (id);// 把id强制转换成number类型
+ 		console.log(typeof id); //number 
+
+ 		name_01 = Number(name_01); //marry强制转换成number类型
+ 		console.log( name_01) // NaN    
+
+ 		var topval =parseInt ("28px");  //一个变量，保存top值，
+ 		console.log(topval-10);        // 18 
+ 		console.log(parseInt("0xf"));  //把f转换成0x(16)进制   返回 是 15
+
+ 		var d = parseFloat("12.34px");
+ 		console.log(d);//12.34
+ 		var d = parseFloat("12.34.56px");
+ 		console.log(d);//12.34 , 忽略第二个小数点后的数值
+ 		var d = parseFloat("0.123abc");
+ 		console.log(d); // 0.123
+
+ //String 类型学习 
+ 		var msg = "holle world";
+ 		var ids = 78965;
+ 		console.log( typeof ids); //number
+
+ 		//toString()方法
+ 		var idstr = ids.toString();// 将ids 转换成string类型，返回ids的一个副本idstr
+ 		console.log(typeof idstr); //string
+ 		console.log(idstr);//78965
+
+ 		//String()方法
+ 		console.log(String(ids));//78965
+ 		console.log( typeof String(ids));//也可以直接用String方法转换（这是强制转换），返回值 string
+ 		var m;//undefined类型
+ 		console.log(typeof String(m)); //string
+
+//布尔类型学习/
+ 		var istudent = false;
+ 		console.log(typeof istudent);//boolean
+ 		console.log(typeof toString (istudent));//sting     ; boolean 转换成string
+ 		var x = 0;
+ 		console.log(Boolean(x));// false ；    除0之外的所有数字转换成boolean型都为true
+ 		var y = "";
+ 		console.log(Boolean(y));// false ；    除“”之外的所有字符，转换成布尔型都为true(空格也是true)
+ 		var z = null;
+ 		console.log(Boolean(z));// false ；    null 和 undefined 转换成布尔型为false
+
+	</script>
+
+</body>
+</html>

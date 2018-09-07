@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>String学习</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+				/*
+					
+						1、charAt（）    	语法：stringObject.charAt(index)
+										    功能：返回stringObject中 index 位置的字符
+								charCodeAt() : 返回index位置的字符的编码
+								说明：可以使用个“方括号加字符索引”来访问字符串中特定的字符（ES5之前不行）
+
+						2、综合运用  获取扩展名
+
+						3、split()方法		语法：stringObject(separator)
+											功能：把一个字符分割成字符串数组
+											返回值：Array
+											说明：separator 分割符
+
+						4、repace()方法		语法： stringObiect.replace(regexp/substr,replacement)
+											功能：替换字符
+											返回值：string (原字符串的内容不变，返回一个新的字符串)
+											参数： regexp(必需)：规定的字符串或要替换的模式的RegExp对象
+												  replacement(必需)：要替换的内容
+
+						5、转换大小写  （1）：toUpperCase() 转换成大写
+									  （2）：toLowerCase() 转换成小写
+				 */
+
+//charAt() 和charCodeAt()
+		var str = "hello wolrd";
+		console.log( str.charAt(4)); //o
+		console.log(str.charCodeAt(4));//111
+		console.log(str.charAt(345)); // 返回空·
+//获取扩展名
+		var  url="index.txt";
+		function getFileFormat(url){
+			var pos=url.lastIndexOf(".");//从最后开始查找“.”，出现的位置
+			return url.substr(pos);//从“.”,开始截取到最后
+		}  	
+		var formatName=getFileFormat(url);
+		console.log(formatName);// .txt
+//split
+		var str1="welcome-to-beijing";
+		console.log(str1.split("-"));  // ["welcome", "to", "beijing"]
+//replace()替换
+		var num="010-456446,400-123111,045-54644";
+		var num1 = num.replace(",","  ");
+		console.log(num); //010-456446,400-123111,045-54644
+		console.log(num1);//010-456446  400-123111,045-54644
+//大小写转换
+		var str2="hello world";
+		console.log(str2.toUpperCase()); //HELLO WORLD
+	</script>
+
+</body>
+</html>

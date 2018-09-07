@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+	//	console.log(alert(explorer));//识别浏览器的名称、版本引擎及操作系统等信息的内容
+
+		//检测浏览器的类型
+		function getBrowser(){
+			//获取userAgent属性
+			var explorer=navigator.userAgent.toLowerCase(),//转换成小写
+				browseer;
+			if (explorer.indexOf("msie")>-1) {  //indexOf() 检测userAgent属性有没有 msie 字符串，没有则返回-1
+				browseer="msie";
+			}else if (explorer.indexOf("opera")-1) {
+				browseer="opera";
+			}else if (explorer.indexOf("safari")>-1) {
+				browseer="safari";
+			}else{
+				browseer="未知浏览器"
+			}
+			return browseer;
+		}
+		var explorer=getBrowser();
+		alert('您当前使用的浏览器是'+explorer+'浏览器');
+	</script>
+</body>
+</html>

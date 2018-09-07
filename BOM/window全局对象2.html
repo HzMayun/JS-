@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="button" value="退 出" id="quit">
+	<script type="text/javascript">
+		window.onload=function(){
+//打开子窗口 window.open(pageURL,name,parameters)
+			window.open("newwindow.html","newwindow","width=400,height=200,left=0,top=0,toolbar=no,menubar=no,scrollbar=no,location=no,status=no");
+
+			var quit=document.getElementById('quit');
+//点击按钮关闭当前窗口 window.close();
+			quit.onclick=function(){
+				window.close();
+			}
+		}
+	</script>
+</body>
+</html>

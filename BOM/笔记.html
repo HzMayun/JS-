@@ -1,0 +1,170 @@
+BOM:(browser 浏览器     object 对象    model 模型)：浏览器对象模型
+
+BOM 的核心对象有：
+	1、window ：是浏览器的一个实例，双重角色，即是JS访问浏览器窗口的一个接口，又是ECMAScript规定的Global对象
+																						Global对象：全局对象
+		全局函数：					（1） function 函数名（）{}
+									（2） window.函数名=function（）{}
+
+		全局变量： 					（1） var 变量名=值
+									（2） window.变量名=值
+
+		对象方法：   alert：  		语法： window.alert("content") 
+			 					功能： 显示一段消息和一个确认按钮的警告框
+
+
+				confirm			语法：window.confirm("message")
+								功能：显示一个带有 指定消息 和 OK 以及 取消按钮 的对话框
+								返回值：如果点击确定按钮，则confirm（）返回true
+										如果点击取消按钮，则confirm（）返回false
+
+
+				prompt：			语法：window.prompt("text","defaultText")
+								参数：text要在对话框中显示的纯文本（而不是HTML格式的文本）
+								  	defaultText：默认的输入文本
+								返回值：如果用户单击提示框的取消按钮，则返回null
+										如果用户单击确认按钮，则返回输入字段当前显示的文本
+
+
+				open:  			语法：window.open(pageURL,name,parameters)
+					   			功能：打开一个浏览器窗口或查找一个已经命名的窗口
+					   			参数说明：	pageURL：子窗口路径
+											name：子窗口句柄（name声明了新窗口的名称，方便后期通过name对子窗口进行引用）
+											parameters：窗口参数（各参数用逗号分隔）
+				close:  window.close()  关闭当前窗口
+
+
+				定时器:   JS是单线程语言，所有的代码执行都是按顺序来的，但是可以通过设定 超时 间歇 值来调整
+
+						（1）超时调用  setTimeout    语法：setTimeout(code,millisec)
+										  			功能：在指定的毫秒数后调用函数或计算表达式
+										  			参数： code :要调用的函数 或要执行的代码
+										  					millisec:在执行代码前需要等待的毫秒数
+										  			返回值：setTimeout方法返回一个ID值，通过它取消超时调用
+								清除超时调用 clearTimeout（ID）
+
+
+						 (2) 间歇调用 setInterval     语法：setInterval（code, millisec）
+						 							 功能: 每间隔 millisec 毫秒秒执行一次代码
+						 							 	code：要调用的函数或者执行的代码块
+						 		清除间歇调用：clearInterval(ID)
+
+
+  	2、location对象    		
+  					location对象提供了与当前窗口加载的文档有关的信息，还提供了一些导航的功能，它既是window对想的属性，也是document的对象的属性
+
+
+  				常用属性 ： （1）href         语法：location.href
+  											 功能: 返回当前加载页面的完整URL
+  											 说明： location.href 与 window.location.href 等价
+
+  						   （2）hash 		语法：location.hash
+  						   				    功能：返回URL中的hash(#号后 跟零或多个字符)，如果不包含则返回空字符串
+
+  						   	(3) host		语法：location.host  
+  						   					功能：返回服务器名称和端口号（如果有）
+
+  						   （4）hostname		语法：location.hostname
+  						   					功能：返回不带端口号的服务器名称
+
+  						   （5）pathname		语法：location.pathname
+  						   					功能：返回URL中的目录和文件名
+
+  						   	(6) port 		语法：location.port
+  						   					功能：返回URL中指定的端口号，如果没有，返回空字符串
+
+  						   （7）protocol		语法：location.protocol
+  						   					功能：返回页面使用的协议
+
+  						   （8）search		语法：location.search
+  						   					功能：返回URL的查询字段。这个字符串以 ？ 开头
+
+
+  				位置操作   （1） 改变浏览器位置的方法 ： location.href属性  location其他对象也可以改变URL：location.hash 、 
+  																									  location.search
+  						   (2)  location.reload()  重新加载当前显示的页面，有可能从缓存中加载
+  						   		location.reload(true) 从服务器重新加
+
+
+ 	3、history对象    history对象保存了浏览器中访问页面的历史记录
+
+ 			（1）back     语法：history.back()
+ 						  功能：回到历史记录的上一步
+ 						  说明：相当于使用了 history.go(-1)
+
+ 			 (2) forward  语法：history.forward()
+ 			 			  功能: 回到历史记录的下一步
+ 			 			  说明：相当于使用了 history.go(1)
+
+
+ 	4、screen对象   包含有关客户端显示屏幕的信息
+
+ 			（1） availWidth    语法：screen.availWidth
+ 								功能: 返回可用的屏幕宽度
+
+ 			（2） availHeigth   语法：screen.availHeigth()
+ 								功能：返回可用的屏幕高度
+ 				console.log("页面宽："+screen.availWidth); 
+				console.log("窗口宽："+window.innerWidth);
+				console.log("页面高："+screen.availHeight);
+				console.log("窗口高："+window.innerHeight);
+
+
+	5、navigator 对象
+
+			（1） userAgent属性：用来识别浏览器的名称、版本引擎及操作系统等信息的内容
+			（2） 如何浏览器的类型
+			（3） 如何判断设备的终端是移动还是PC
+	
+
+
+
+function slideImg(){
+	var main=byId(main);
+	//滑过图片 清楚定时器，离开的时候继续    每隔两秒中轮播图片
+	main.onmouseover=function(){
+		//滑过清除定时器
+	}
+	main.onmouseout=function(){
+		//离开时继续
+		timer=setInterval(function(){
+			index++; // len 3  0 1 2 
+			if (index>=len) {
+				index=0;
+			}
+			//切换图片 三个方式 ：轮播 圆点点击 上一张 下一张点击切换 封装一个专门切换图片的函数
+			changeImag();//全局变量index，不用传参数
+		},2000)
+	}
+}
+
+
+
+
+function slideImg(){
+	var main=byId(main);
+	//滑过图片 清楚定时器，离开的时候继续    每隔两秒中轮播图片
+	main.onmouseover=function(){
+		//滑过清除定时器
+	}
+	main.onmouseout=function(){
+		//离开时继续
+		timer=setInterval(function(){
+			index++; // len 3  0 1 2 
+			if (index>=len) {
+				index=0;
+			}
+			//切换图片 三个方式 ：轮播 圆点点击 上一张 下一张点击切换 封装一个专门切换图片的函数
+			changeImag();//全局变量index，不用传参数
+		},2000)
+	}
+}
+//封装一个切换图片的函数
+function changeImag(){
+	//遍历banner下的所有div，将其隐藏  然后通过pics[index] 显示
+	for (var i = 0; i < i.len; i++) {
+		pics[i].style.display='none';
+	}
+	pics[index].style.display='block';
+}
+slideImg();

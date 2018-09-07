@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+//setTimeout("alert('hello')",4000);//4000毫秒后弹出对话框   不推荐这么写
+		var fnCall=function(){   //自定义函数 
+			alert("hello");
+		}
+		//setTimeout(fnCall,2000); //然后调用函数
+		var timeout1= setTimeout(function(){alert("hello")},2000); //或者直接写在匿名函数里
+//取消超时调用
+		clearTimeout(timeout1); 
+
+//间歇调用setInterval
+		var intervalID=setInterval(function(){console.log('您好')},1000)
+		//十秒之后停止打印
+		setTimeout(function(){
+			clearInterval(intervalID)
+		},2000);
+
+
+
+		var num=1,max=10,
+			timer=null;
+		//每隔一秒 num递增1，直到num和max相等
+		var ID= setInterval(
+			function(){
+				console.log(num);
+				num++;
+				if (num>max) {clearInterval(ID)}
+			},1000);
+		//使用超时调用实现 
+		function inCreamentNum(){
+			console.log(num);
+			num++;
+			if (num<=20) {
+				setTimeout(inCreamentNum,1000)  //函数调用它本身
+			}else{
+				clearTimeout(timer);
+			}
+		}
+		var timer=setTimeout(inCreamentNum,1000)
+	</script>
+</body>
+</html>

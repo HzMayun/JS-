@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>这是history对象</p>
+	<p><input type="button" id="btn" value="后 退"></p>
+	<script type="text/javascript">
+		var btn=document.getElementById('btn');
+//back
+		btn.onclick=function () {
+			//history.back();
+			history.go(-1); //-1是回到上一步，-2回到前两步 ，一直类推
+		}
+//
+	</script>
+</body>
+</html>
